@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\AppMVC.csproj": {}
+    "F:\\DotNetMVC-School\\AppMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\AppMVC.csproj": {
+    "F:\\DotNetMVC-School\\AppMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\AppMVC.csproj",
+        "projectUniqueName": "F:\\DotNetMVC-School\\AppMVC.csproj",
         "projectName": "AppMVC",
-        "projectPath": "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\AppMVC.csproj",
+        "projectPath": "F:\\DotNetMVC-School\\AppMVC.csproj",
         "packagesPath": "C:\\Users\\NhatNH2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\obj\\",
+        "outputPath": "F:\\DotNetMVC-School\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NhatNH2\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,49 +8,49 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AppMVC
 build_property.RootNamespace = AppMVC
-build_property.ProjectDir = C:\Users\NhatNH2\source\repos\MVCBoiler\
+build_property.ProjectDir = F:\DotNetMVC-School\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\NhatNH2\source\repos\MVCBoiler
+build_property.MSBuildProjectDirectory = F:\DotNetMVC-School
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Areas/Identity/Pages/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Category/Index.cshtml]
+[F:/DotNetMVC-School/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Home/Index.cshtml]
+[F:/DotNetMVC-School/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Home/Privacy.cshtml]
+[F:/DotNetMVC-School/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Shared/Error.cshtml]
+[F:/DotNetMVC-School/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Shared/_LoginPartial.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/_ViewImports.cshtml]
+[F:/DotNetMVC-School/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/NhatNH2/source/repos/MVCBoiler/Views/Shared/_Layout.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8hs1hrfuvz

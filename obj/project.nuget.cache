@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KW6QxEjqltyAgLbFb2Vd8SN6jBAKF1WP/zjb3aLeCPlNT3k0lp2MhcebawLpFOwTHyzpwsBibcrriFjxZB+ioQ==",
+  "dgSpecHash": "Qs5BcvTuUth83BB9c0wAeRzTF3pLpt81OMJKlhayKYHkrW8miX4r/BRto7NLf+AI5GPfa1hoJgweKugEQy931g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\NhatNH2\\source\\repos\\MVCBoiler\\AppMVC.csproj",
+  "projectFilePath": "F:\\DotNetMVC-School\\AppMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NhatNH2\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
