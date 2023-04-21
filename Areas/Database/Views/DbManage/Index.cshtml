@@ -1,0 +1,72 @@
+﻿@using Microsoft.EntityFrameworkCore
+@using System.Data
+@using AppMVC.Models
+
+@inject AppDbContext db
+@* @using App.Menu
+@inject AdminSidebarService _AdminSidebarService *@
+
+@{
+    ViewData["Title"] = "Database Manage";
+    @* Layout = "/Views/Shared/_LayoutAdmin.cshtml"; *@
+    var connect = db.Database.GetDbConnection();
+    var dbName = connect.Database;
+    var canConnect = db.Database.CanConnect();
+
+    db.Database.GetPendingMigrations();
+}
+
+<partial name="_AlertMessage" />
+<h1>Database Manage</h1>
+
+<p>@dbName</p>
+<p>@connect.DataSource</p>
+<p>@connect.State</p>
+
+<p>Migrations</p>
+@foreach (var migration in db.Database.GetAppliedMigrations())
+{
+    <p>@migration</p>
+}
+
+<p>Pending Migrations</p>
+@foreach (var migration in db.Database.GetPendingMigrations())
+{
+    <p>@migration</p>
+}
+
+@if (db.Database.GetPendingMigrations().Any())
+{
+    <form method="post">
+        <button class="btn btn-success" asp-action="Migrate">Tạo Db (Cập nhật migration)</button>
+    </form>
+
+}
+
+<p>Can Connect: @canConnect</p>
+
+@if (canConnect)
+{
+    <h2>Tables</h2>
+
+    await db.Database.OpenConnectionAsync();
+    var tables = db.Database.GetDbConnection().GetSchema("Tables");
+    <ul>
+        @foreach (System.Data.DataRow row in tables.Rows)
+        {
+            <li>@row["TABLE_NAME"]</li>
+        }
+    </ul>
+}
+
+<a class="btn btn-danger" asp-action="DeleteDb">Xóa Db:  @dbName</a>
+<a class="btn btn-danger" asp-action="SeedData">Seed Data</a>
+
+@* @{
+    _AdminSidebarService.SetActive("DbManage", "Index", "Database");
+}
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+} *@

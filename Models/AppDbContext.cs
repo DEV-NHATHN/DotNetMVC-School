@@ -1,8 +1,7 @@
-using AppMVC.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace App.Models
+namespace AppMVC.Models
 {
    // App.Models.AppDbContext
    public class AppDbContext : IdentityDbContext<AppUser>

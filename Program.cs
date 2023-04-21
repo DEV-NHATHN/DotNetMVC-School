@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using App.Models;
 using Microsoft.AspNetCore.Mvc.Razor;
 using AppMVC.Data;
 using AppMVC.Models;
@@ -111,6 +110,7 @@ namespace AppMVC
          app.UseHttpsRedirection();
          app.UseStaticFiles();
          app.UseSession();
+         app.UseStatusCodePages();
          app.UseRouting();
          app.UseAuthentication();
          app.UseAuthorization();
