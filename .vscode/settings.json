@@ -1,0 +1,6 @@
+{
+    "prettier.requireConfig": false,
+    "prettier.configPath": "",
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "prettier.useEditorConfig": false
+}
