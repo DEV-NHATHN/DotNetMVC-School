@@ -655,8 +655,6 @@ F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.AspNetCore.StaticFiles.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.AspNetCore.WebSockets.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.AspNetCore.WebUtilities.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.CSharp.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Caching.Abstractions.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Caching.Memory.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Abstractions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Binder.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.CommandLine.dll
@@ -668,7 +666,6 @@ F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Jso
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.UserSecrets.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Configuration.Xml.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.DependencyInjection.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
@@ -685,7 +682,6 @@ F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Localization.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Configuration.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Console.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.Debug.dll
@@ -696,8 +692,6 @@ F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Logging.TraceSour
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.ObjectPool.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.DataAnnotations.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Options.dll
-F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.Primitives.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Extensions.WebEncoders.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.JSInterop.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\refs\Microsoft.Net.Http.Headers.dll
@@ -1134,3 +1128,8 @@ F:\DotNetMVC-School\obj\Debug\net6.0\AppMVC.genruntimeconfig.cache
 F:\DotNetMVC-School\obj\Debug\net6.0\ref\AppMVC.dll
 F:\DotNetMVC-School\bin\Debug\net6.0\bundleconfig.json
 F:\DotNetMVC-School\bin\Debug\net6.0\package.json
+F:\DotNetMVC-School\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\DotNetMVC-School\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\DotNetMVC-School\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\DotNetMVC-School\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+F:\DotNetMVC-School\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
