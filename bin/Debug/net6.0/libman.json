@@ -13,6 +13,10 @@
     {
       "library": "gulp@3.8.5",
       "destination": "wwwroot/lib/gulp/"
+    },
+    {
+      "library": "font-awesome@5.15.3",
+      "destination": "wwwroot/lib/font-awesome"
     }
   ]
 }

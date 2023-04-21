@@ -8,13 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Views\NewFolder1\**" />
     <Compile Remove="Views\Shared\NewFolder\**" />
+    <Content Remove="Areas\Identity\Views\NewFolder1\**" />
     <Content Remove="Views\Shared\NewFolder\**" />
+    <EmbeddedResource Remove="Areas\Identity\Views\NewFolder1\**" />
     <EmbeddedResource Remove="Views\Shared\NewFolder\**" />
+    <None Remove="Areas\Identity\Views\NewFolder1\**" />
     <None Remove="Views\Shared\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.16" />
@@ -30,9 +35,18 @@
   <ItemGroup>
     <Folder Include="Areas\Database\Data\" />
     <Folder Include="Areas\Database\Models\" />
+    <Folder Include="Areas\Identity\Data\" />
+    <Folder Include="Areas\Identity\Models\Manage\" />
+    <Folder Include="Areas\Identity\Models\Account\" />
+    <Folder Include="Areas\Identity\Models\User\" />
+    <Folder Include="Areas\Identity\Models\Role\" />
+    <Folder Include="Areas\Identity\Views\Account\" />
+    <Folder Include="Areas\Identity\Views\Manage\" />
+    <Folder Include="Areas\Identity\Views\User\" />
+    <Folder Include="Areas\Identity\Views\Role\" />
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="mailssave\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />

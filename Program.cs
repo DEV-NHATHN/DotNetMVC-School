@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using AppMVC.Data;
 using AppMVC.Models;
 using AppMVC.Services;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace AppMVC
 {
@@ -12,6 +13,7 @@ namespace AppMVC
       public static void Main(string[] args)
       {
          var builder = WebApplication.CreateBuilder(args);
+         var Configuration = builder.Configuration;
 
          // Add services to the container.
          var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -28,10 +30,13 @@ namespace AppMVC
          {
             options.UseSqlServer(builder.Configuration.GetConnectionString("AppMvcConnectionString"));
          });
-         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
          builder.Services.AddControllersWithViews();
+         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
          builder.Services.AddOptions();
+         var mailsetting = Configuration.GetSection("MailSettings");
+         builder.Services.Configure<MailSettings>(mailsetting);
+         builder.Services.AddSingleton<IEmailSender, SendMailService>();
+
          builder.Services.AddRazorPages();
          builder.Services.AddTransient(typeof(ILogger<>), typeof(Logger<>));
          builder.Services.Configure<RazorViewEngineOptions>(options =>
@@ -48,7 +53,7 @@ namespace AppMVC
             });
          });
 
-         // builder.Services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
+         builder.Services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
          // builder.Services.AddTransient<AdminSidebarService>();
 
          // Dang ky Identity
@@ -91,8 +96,9 @@ namespace AppMVC
             options.LogoutPath = "/logout/";
             options.AccessDeniedPath = "/khongduoctruycap.html";
          });
+           
 
-         builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
+            builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
 
          var app = builder.Build();
             // Configure the HTTP request pipeline.
