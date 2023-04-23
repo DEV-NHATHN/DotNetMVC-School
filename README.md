@@ -56,5 +56,7 @@ asp-route
 "Microsoft.EntityFrameworkCore.Database.Command": "Information"
 
 
-
-
+<div class="tooltip">
+  Tên sản phẩm quá dài làm mất layout của trang
+  <span class="tooltiptext">Tên sản phẩm quá dài làm mất layout của trang</span>
+</div>

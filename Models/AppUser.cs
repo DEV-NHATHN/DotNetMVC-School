@@ -11,8 +11,20 @@ namespace AppMVC.Models
         [StringLength(400)]
         public string? HomeAdress { get; set; }
 
+        [Column(TypeName = "nvarchar")]
+        [StringLength(100)]
+        public string? FullName { get; set; }
+
         // [Required]       
         [DataType(DataType.Date)]
         public DateTime? BirthDate { get; set; }
+
+        public bool? IsDeleted { get; set; }
+
+
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }
