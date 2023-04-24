@@ -21,10 +21,11 @@ namespace AppMVC.Models
 
         public bool? IsDeleted { get; set; }
 
-
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
+
+        public string Discriminator { get; set; } = "AppUser";
     }
 }

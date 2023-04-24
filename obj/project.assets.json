@@ -11056,19 +11056,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\NhatNH2\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Documents\\React Projects\\C#\\DotNetMVC-School\\AppMVC.csproj",
+      "projectUniqueName": "F:\\DotNetMVC-School\\AppMVC.csproj",
       "projectName": "AppMVC",
-      "projectPath": "C:\\Users\\Admin\\Documents\\React Projects\\C#\\DotNetMVC-School\\AppMVC.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Documents\\React Projects\\C#\\DotNetMVC-School\\obj\\",
+      "projectPath": "F:\\DotNetMVC-School\\AppMVC.csproj",
+      "packagesPath": "C:\\Users\\NhatNH2\\.nuget\\packages\\",
+      "outputPath": "F:\\DotNetMVC-School\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NhatNH2\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

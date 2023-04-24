@@ -1,4 +1,4 @@
-using AppMVC.Models.SchoolManagement;
+﻿using AppMVC.Models.SchoolManagement;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -68,8 +68,15 @@ namespace AppMVC.Models
             modelBuilder.Entity<AppUser>()
                 .Property(e => e.ModifiedBy)
                 .HasMaxLength(256);
+
+            modelBuilder.Entity<AppUser>()
+              .HasDiscriminator<string>("Discriminator")
+              .HasValue<AppUser>("AppUser")
+              .HasValue<Student>("Student");
         }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<School> Schools { get; set; }
     }
 }

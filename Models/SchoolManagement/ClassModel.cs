@@ -23,13 +23,7 @@ namespace AppMVC.Models.SchoolManagement
         [StringLength(256)]
         public string CreatedBy { get; set; }
 
-        // parent
-        [Display(Name = "Trường")]
         public int? SchoolId { get; set; }
-
-        [ForeignKey("Id")]
-        [Display(Name = "Trường")]
-        public School School { get; set; }
 
         // parent
         [Display(Name = "Khoa")]

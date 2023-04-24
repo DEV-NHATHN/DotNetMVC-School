@@ -34,7 +34,5 @@ namespace AppMVC.Models.SchoolManagement
 
         //children
         public ICollection<ClassModel> Classes { get; set; }
-
-        public ICollection<Student> Students { get; set; }
     }
 }

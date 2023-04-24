@@ -44,6 +44,8 @@
     <Folder Include="Areas\Identity\Views\Manage\" />
     <Folder Include="Areas\Identity\Views\User\" />
     <Folder Include="Areas\Identity\Views\Role\" />
+    <Folder Include="Areas\SchoolManagement\Data\" />
+    <Folder Include="Areas\SchoolManagement\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
     <Folder Include="mailssave\" />

@@ -8,241 +8,269 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AppMVC
 build_property.RootNamespace = AppMVC
-build_property.ProjectDir = C:\Users\Admin\Documents\React Projects\C#\DotNetMVC-School\
+build_property.ProjectDir = F:\DotNetMVC-School\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Admin\Documents\React Projects\C#\DotNetMVC-School
+build_property.MSBuildProjectDirectory = F:\DotNetMVC-School
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Database/Views/DbManage/DeleteDb.cshtml]
+[F:/DotNetMVC-School/Areas/Database/Views/DbManage/DeleteDb.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcRGJNYW5hZ2VcRGVsZXRlRGIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Database/Views/DbManage/Index.cshtml]
+[F:/DotNetMVC-School/Areas/Database/Views/DbManage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcRGJNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Database/Views/_ViewImports.cshtml]
+[F:/DotNetMVC-School/Areas/Database/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Database/Views/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Areas/Database/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGF0YWJhc2VcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/AccessDenied.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ConfirmEmail.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/Error.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ErrorConfirmEmail.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ErrorConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxFcnJvckNvbmZpcm1FbWFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ExternalLoginConfirmation.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ExternalLoginConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxFeHRlcm5hbExvZ2luQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ExternalLoginFailure.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ExternalLoginFailure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxFeHRlcm5hbExvZ2luRmFpbHVyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ForgotPassword.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ForgotPasswordConfirmation.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/Lockout.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/Login.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/Register.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/RegisterConfirmation.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ResetPassword.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/ResetPasswordConfirmation.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/SendCode.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/SendCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxTZW5kQ29kZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/UseRecoveryCode.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/UseRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxVc2VSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/VerifyAuthenticatorCode.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/VerifyAuthenticatorCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxWZXJpZnlBdXRoZW50aWNhdG9yQ29kZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/VerifyCode.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/VerifyCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxWZXJpZnlDb2RlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Account/_LoginLayout.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Account/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcQWNjb3VudFxfTG9naW5MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/AddPhoneNumber.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/AddPhoneNumber.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXEFkZFBob25lTnVtYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/ChangePassword.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXENoYW5nZVBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/DisplayRecoveryCodes.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/DisplayRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXERpc3BsYXlSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/EditProfile.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXEVkaXRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/Error.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/Index.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/ManageLogins.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/ManageLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXE1hbmFnZUxvZ2lucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/SetPassword.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXFNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Manage/VerifyPhoneNumber.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Manage/VerifyPhoneNumber.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcTWFuYWdlXFZlcmlmeVBob25lTnVtYmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/AddRoleClaim.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/AddRoleClaim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxBZGRSb2xlQ2xhaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/Create.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/Delete.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/Edit.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/EditRoleClaim.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/EditRoleClaim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxFZGl0Um9sZUNsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/Role/Index.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/User/AddClaim.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/User/AddClaim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcVXNlclxBZGRDbGFpbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/User/AddRole.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/User/AddRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcVXNlclxBZGRSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/User/Index.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/User/SetPassword.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/User/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcVXNlclxTZXRQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/_ViewImports.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Areas/Identity/Views/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Areas/Identity/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Pages/Error.cshtml]
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/School/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xTY2hvb2xcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/School/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xTY2hvb2xcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/School/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xTY2hvb2xcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/School/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xTY2hvb2xcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/School/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xTY2hvb2xcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Areas/SchoolManagement/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2Nob29sTWFuYWdlbWVudFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/DotNetMVC-School/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Pages/_Layout.cshtml]
+[F:/DotNetMVC-School/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Pages/_ViewImports.cshtml]
+[F:/DotNetMVC-School/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Pages/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Category/Index.cshtml]
+[F:/DotNetMVC-School/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Home/Index.cshtml]
+[F:/DotNetMVC-School/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Home/Privacy.cshtml]
+[F:/DotNetMVC-School/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Shared/Error.cshtml]
+[F:/DotNetMVC-School/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Shared/_AlertMessage.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_AlertMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGVydE1lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Shared/_LoginPartial.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/_ViewImports.cshtml]
+[F:/DotNetMVC-School/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/_ViewStart.cshtml]
+[F:/DotNetMVC-School/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/React Projects/C\#/DotNetMVC-School/Views/Shared/_Layout.cshtml]
+[F:/DotNetMVC-School/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8hs1hrfuvz
