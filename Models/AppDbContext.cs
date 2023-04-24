@@ -42,6 +42,9 @@ namespace AppMVC.Models
             // khoa
             modelBuilder.Entity<Department>().HasIndex(d => d.Id).IsUnique();
             modelBuilder.Entity<Department>().HasIndex(d => d.Name).IsUnique();
+            modelBuilder.Entity<Department>()
+              .Property(e => e.CreatedDate)
+              .HasDefaultValueSql("getdate()");
 
             // lop
             modelBuilder.Entity<ClassModel>().HasIndex(c => c.Id).IsUnique();
@@ -69,14 +72,16 @@ namespace AppMVC.Models
                 .Property(e => e.ModifiedBy)
                 .HasMaxLength(256);
 
-            modelBuilder.Entity<AppUser>()
-              .HasDiscriminator<string>("Discriminator")
-              .HasValue<AppUser>("AppUser")
-              .HasValue<Student>("Student");
         }
 
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<School> Schools { get; set; }
+
+        public DbSet<Department>? Departments { get; set; }
+
+        public DbSet<ClassModel>? Classes { get; set; }
+
+        public DbSet<AppUser>? Students { get; set; }
     }
 }

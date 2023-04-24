@@ -18,21 +18,18 @@ namespace AppMVC.Models.SchoolManagement
         public string? Name { get; set; }
         public int Capacity { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedDate { get; set; }
 
         [StringLength(256)]
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
+
+        public int? SchoolId { get; set; }
 
         // parent
         [Display(Name = "Trường")]
-        public int? SchoolId { get; set; }
-
-        [ForeignKey("Id")]
-        [Display(Name = "Trường")]
-        public School School { get; set; }
+        public School? School { get; set; }
 
         //children
-        public ICollection<ClassModel> Classes { get; set; }
+        public ICollection<ClassModel>? Classes { get; set; }
     }
 }

@@ -11,7 +11,6 @@ using System.Security.Claims;
 
 namespace AppMVC.Areas.Identity.Controllers
 {
-
     [Authorize(Roles = RoleName.Administrator)]
     [Area("Identity")]
     [Route("/ManageUser/[action]")]

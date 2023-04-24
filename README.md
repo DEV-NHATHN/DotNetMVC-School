@@ -6,6 +6,7 @@ docker-compose up -d
 Visual Studio:
 add-migration AddCategory
 update-database
+Remove-Migration
 
 ## Action Result
 - ViewResult : Trả về View

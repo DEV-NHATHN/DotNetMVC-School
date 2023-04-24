@@ -56,7 +56,7 @@ namespace AppMVC.Areas.Identity.Controllers
                 profile = new EditExtraProfileModel()
                 {
                     BirthDate = user.BirthDate,
-                    HomeAdress = user.HomeAdress,
+                    HomeAdress = user.HomeAddress,
                     UserName = user.UserName,
                     UserEmail = user.Email,
                     PhoneNumber = user.PhoneNumber,
@@ -371,7 +371,7 @@ namespace AppMVC.Areas.Identity.Controllers
             var model = new EditExtraProfileModel()
             {
                 BirthDate = user.BirthDate,
-                HomeAdress = user.HomeAdress,
+                HomeAdress = user.HomeAddress,
                 UserName = user.UserName,
                 UserEmail = user.Email,
                 PhoneNumber = user.PhoneNumber,
@@ -383,7 +383,7 @@ namespace AppMVC.Areas.Identity.Controllers
         {
             var user = await GetCurrentUserAsync();
 
-            user.HomeAdress = model.HomeAdress;
+            user.HomeAddress = model.HomeAdress;
             user.BirthDate = model.BirthDate;
             await _userManager.UpdateAsync(user);
 

@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppMVC.Areas.Database.Controllers
 {
-   public class DBManageController : Controller
+    [Area("Database")]
+    [Route("/database-manage/[action]")]
+    public class DBManageController : Controller
    {
       public DBManageController(AppDbContext dbContext, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager)
       {
@@ -23,9 +25,7 @@ namespace AppMVC.Areas.Database.Controllers
 
       private readonly RoleManager<IdentityRole> _roleManager;
 
-      [Area("Database")]
-      [Route("/database-manage/[action]")]
-      public IActionResult Index()
+        public IActionResult Index()
       {
          return View();
       }
@@ -44,8 +44,6 @@ namespace AppMVC.Areas.Database.Controllers
       [Authorize(Roles = RoleName.Administrator)]
       public async Task<IActionResult> DeleteDbAsync()
       {
-
-
          var success = await _dbContext.Database.EnsureDeletedAsync();
 
          StatusMessage = success ? "Xóa Database thành công" : "Không xóa được Db";

@@ -33,12 +33,14 @@ namespace AppMVC.Migrations
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("ClassId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -47,9 +49,8 @@ namespace AppMVC.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getdate()");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -62,7 +63,7 @@ namespace AppMVC.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("HomeAdress")
+                    b.Property<string>("HomeAddress")
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
@@ -76,7 +77,6 @@ namespace AppMVC.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -102,6 +102,9 @@ namespace AppMVC.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("SchoolId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -114,6 +117,8 @@ namespace AppMVC.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClassId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -123,8 +128,6 @@ namespace AppMVC.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("Users", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("AppUser");
                 });
 
             modelBuilder.Entity("AppMVC.Models.Category", b =>
@@ -147,13 +150,15 @@ namespace AppMVC.Migrations
             modelBuilder.Entity("AppMVC.Models.SchoolManagement.ClassModel", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -175,6 +180,8 @@ namespace AppMVC.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentId");
+
                     b.HasIndex("Id")
                         .IsUnique();
 
@@ -187,19 +194,22 @@ namespace AppMVC.Migrations
             modelBuilder.Entity("AppMVC.Models.SchoolManagement.Department", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -216,6 +226,8 @@ namespace AppMVC.Migrations
 
                     b.HasIndex("Name")
                         .IsUnique();
+
+                    b.HasIndex("SchoolId");
 
                     b.ToTable("Department");
                 });
@@ -384,31 +396,20 @@ namespace AppMVC.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AppMVC.Models.SchoolManagement.Student", b =>
+            modelBuilder.Entity("AppMVC.Models.AppUser", b =>
                 {
-                    b.HasBaseType("AppMVC.Models.AppUser");
+                    b.HasOne("AppMVC.Models.SchoolManagement.ClassModel", "Class")
+                        .WithMany("Students")
+                        .HasForeignKey("ClassId");
 
-                    b.Property<int?>("ClassId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SchoolId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("ClassId");
-
-                    b.HasDiscriminator().HasValue("Student");
+                    b.Navigation("Class");
                 });
 
             modelBuilder.Entity("AppMVC.Models.SchoolManagement.ClassModel", b =>
                 {
                     b.HasOne("AppMVC.Models.SchoolManagement.Department", "Department")
                         .WithMany("Classes")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DepartmentId");
 
                     b.Navigation("Department");
                 });
@@ -417,9 +418,7 @@ namespace AppMVC.Migrations
                 {
                     b.HasOne("AppMVC.Models.SchoolManagement.School", "School")
                         .WithMany("Departments")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SchoolId");
 
                     b.Navigation("School");
                 });
@@ -473,15 +472,6 @@ namespace AppMVC.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("AppMVC.Models.SchoolManagement.Student", b =>
-                {
-                    b.HasOne("AppMVC.Models.SchoolManagement.ClassModel", "Class")
-                        .WithMany("Students")
-                        .HasForeignKey("ClassId");
-
-                    b.Navigation("Class");
                 });
 
             modelBuilder.Entity("AppMVC.Models.SchoolManagement.ClassModel", b =>

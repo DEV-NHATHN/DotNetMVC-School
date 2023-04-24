@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using AppMVC.Models.SchoolManagement;
 
 namespace AppMVC.Models
 {
@@ -9,7 +10,7 @@ namespace AppMVC.Models
     {
         [Column(TypeName = "nvarchar")]
         [StringLength(400)]
-        public string? HomeAdress { get; set; }
+        public string? HomeAddress { get; set; }
 
         [Column(TypeName = "nvarchar")]
         [StringLength(100)]
@@ -22,10 +23,18 @@ namespace AppMVC.Models
         public bool? IsDeleted { get; set; }
 
         public DateTime CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
-        public string ModifiedBy { get; set; }
+        public string? ModifiedBy { get; set; }
 
-        public string Discriminator { get; set; } = "AppUser";
+
+        public int? SchoolId { get; set; }
+
+        public int? DepartmentId { get; set; }
+
+        public int? ClassId { get; set; }
+
+        [Display(Name = "Lớp")]
+        public ClassModel? Class { set; get; }
     }
 }
