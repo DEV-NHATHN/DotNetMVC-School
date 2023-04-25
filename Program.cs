@@ -5,6 +5,7 @@ using AppMVC.Data;
 using AppMVC.Models;
 using AppMVC.Services;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using AppMVC.Services.ValidateService;
 
 namespace AppMVC
 {
@@ -36,6 +37,7 @@ namespace AppMVC
          var mailsetting = Configuration.GetSection("MailSettings");
          builder.Services.Configure<MailSettings>(mailsetting);
          builder.Services.AddSingleton<IEmailSender, SendMailService>();
+         builder.Services.AddScoped<IValidationService, ValidateService>();
 
          builder.Services.AddRazorPages();
          builder.Services.AddTransient(typeof(ILogger<>), typeof(Logger<>));

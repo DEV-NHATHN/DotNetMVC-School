@@ -13,14 +13,18 @@
 <body>
     <header>
         <!-- start header -->
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">School</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <partial name="_LoginPartial" />  
+        <nav class="page-header navbar navbar-fixed-top">
+            <div class="page-header-inner">
+                <div class="page-logo">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">School</a>
+                </div>
+                <div class="">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
         </nav>
     </header>

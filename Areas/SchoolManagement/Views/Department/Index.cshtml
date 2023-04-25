@@ -8,6 +8,22 @@
     <title>Index</title>
 </head>
 <body>
+    @{
+        if (@ViewBag.success != null)
+        {
+            <div id="AlertBox" class="alert alert-success" role="alert">
+                @ViewBag.success
+            </div>
+        }
+    }
+    @{
+        if (@ViewBag.error != null)
+        {
+            <div id="AlertBox" class="alert alert-danger" role="alert">
+                @ViewBag.error
+            </div>
+        }
+    }
 <p>
     <a asp-action="Create">Create New</a>
 </p>

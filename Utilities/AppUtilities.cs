@@ -108,5 +108,9 @@ namespace AppMVC.Utilities
             }
         }
 
+        public static string ToLowerTrim(string str)
+        {
+            return str.ToLower().Trim();
+        }
     }
 }

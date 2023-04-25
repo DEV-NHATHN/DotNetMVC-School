@@ -15,7 +15,7 @@ namespace AppMVC.Models.SchoolManagement
         [Required(ErrorMessage = "Phải có tên khoa")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "{0} dài {1} đến {2}")]
         [Display(Name = "Tên khoa")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public int Capacity { get; set; }
 
         public DateTime CreatedDate { get; set; }

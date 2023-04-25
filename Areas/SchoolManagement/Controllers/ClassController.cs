@@ -1,13 +1,18 @@
-﻿using AppMVC.Models;
+﻿using AppMVC.Data;
+using AppMVC.Models;
 using AppMVC.Models.SchoolManagement;
+using AppMVC.Services;
 using AppMVC.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace AppMVC.Areas.SchoolManagement.Controllers
 {
+    [Authorize(Roles = RoleName.Administrator)]
     [Area("SchoolManagement")]
     [Route("admin/school-management/class/[action]/{id?}")]
     public class ClassController : Controller
@@ -16,10 +21,13 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
 
         private readonly UserManager<AppUser> _userManager;
 
-        public ClassController(AppDbContext context, UserManager<AppUser> userManager)
+        private readonly IValidationService _validationService;
+
+        public ClassController(AppDbContext context, UserManager<AppUser> userManager, IValidationService validationService)
         {
             _context = context;
             _userManager = userManager;
+            _validationService = validationService;
         }
 
         // GET: SchoolManagement/Class
@@ -60,20 +68,45 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Capacity,CreatedDate,CreatedBy,SchoolId,DepartmentId")] ClassModel classModel)
+        public async Task<IActionResult> Create([Bind("Name,Capacity,CreatedDate,CreatedBy,SchoolId,DepartmentId")] ClassModel classModel)
         {
+            var departmentCapacity = _context.Departments.FirstOrDefault(m => m.Id == classModel.DepartmentId).Capacity;
+            var classCapacity = _context.Classes.Where(m => m.DepartmentId == classModel.DepartmentId).Sum(m => m.Capacity) + classModel.Capacity;
+            var availability = departmentCapacity - classCapacity + classModel.Capacity;
+            var validate = _validationService.ValidateCreateClass(classModel);
+
+            if (validate != 0)
+            {
+                switch (validate)
+                {
+                    case 1:
+                        ViewBag.error = "Class Over " + availability.ToString();
+                        break;
+                    case 2:
+                        ViewBag.error = "Class Existed";
+                        break;
+                }
+                ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name", classModel.DepartmentId);
+                return View(classModel);
+            }
+
             ErrorLogger.LogModelStateErrors(ModelState);
 
             if (ModelState.IsValid)
             {
+                classModel.CreatedDate = DateTime.Now;
                 classModel.CreatedBy = _userManager.GetUserId(User);
+                // get school id through department id
+                classModel.SchoolId = _context.Departments.Find(classModel.DepartmentId).SchoolId;
                 _context.Add(classModel);
                 await _context.SaveChangesAsync();
+                ViewBag.success = "Create Class";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name", classModel.DepartmentId);
             return View(classModel);
         }
+
 
         // GET: SchoolManagement/Class/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -97,18 +130,43 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Capacity,CreatedDate,CreatedBy,SchoolId,DepartmentId")] ClassModel classModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Capacity,CreatedDate,CreatedBy,SchoolId,DepartmentId")] ClassModel classModel)
         {
-            if (id != classModel.Id)
+            var departmentCapacity = _context.Departments.FirstOrDefault(m => m.Id == classModel.DepartmentId).Capacity;
+            var classCapacity = _context.Classes.Where(m => m.DepartmentId == classModel.DepartmentId).Sum(m => m.Capacity);
+            var availability = departmentCapacity - classCapacity + _context.Classes.Find(id).Capacity ;
+            var editClass = _context.Classes.FirstOrDefault(m => m.Id == id);
+            var validate = _validationService.ValidateUpdateClass(id, classModel);
+
+            if (validate != 0)
             {
-                return NotFound();
+                switch (validate)
+                {
+                    case 2:
+                        ViewBag.error = "Class Existed";
+                        break;
+                }
+
+                ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name", classModel.DepartmentId);
+                return View(classModel);
             }
 
             if (ModelState.IsValid)
             {
+                if (availability < classModel.Capacity)
+                {
+                    ViewBag.error = "Class Over: " + availability.ToString();
+                    ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name", classModel.DepartmentId);
+                    return View(classModel);
+                }
+
                 try
                 {
-                    _context.Update(classModel);
+                    editClass.Name = classModel.Name;
+                    editClass.Capacity = classModel.Capacity;
+                    editClass.DepartmentId = classModel.DepartmentId;
+                    editClass.SchoolId = _context.Departments.Find(classModel.DepartmentId).SchoolId;
+                    _context.Classes.Update(editClass);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -161,14 +219,14 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             {
                 _context.Classes.Remove(classModel);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClassModelExists(int id)
         {
-          return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,11 +1,15 @@
-﻿using AppMVC.Models;
+﻿using AppMVC.Data;
+using AppMVC.Models;
 using AppMVC.Models.SchoolManagement;
 using AppMVC.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace AppMVC.Areas.SchoolManagement.Controllers
 {
+    [Authorize(Roles = RoleName.Administrator)]
     [Area("SchoolManagement")]
     [Route("admin/school-management/school/[action]/{id?}")]
     public class SchoolController : Controller

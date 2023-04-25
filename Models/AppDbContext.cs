@@ -37,18 +37,18 @@ namespace AppMVC.Models
             {
                 entity.HasIndex(s => s.Id)
                    .IsUnique();
+                entity.HasIndex(s => s.Name)
+                   .IsUnique();
             });
 
             // khoa
             modelBuilder.Entity<Department>().HasIndex(d => d.Id).IsUnique();
-            modelBuilder.Entity<Department>().HasIndex(d => d.Name).IsUnique();
             modelBuilder.Entity<Department>()
               .Property(e => e.CreatedDate)
               .HasDefaultValueSql("getdate()");
 
             // lop
             modelBuilder.Entity<ClassModel>().HasIndex(c => c.Id).IsUnique();
-            modelBuilder.Entity<ClassModel>().HasIndex(c => c.Name).IsUnique();
 
             modelBuilder.Entity<ClassModel>()
                 .Property(c => c.CreatedDate)

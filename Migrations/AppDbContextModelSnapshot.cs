@@ -185,9 +185,6 @@ namespace AppMVC.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.ToTable("Class");
                 });
 
@@ -224,9 +221,6 @@ namespace AppMVC.Migrations
                     b.HasIndex("Id")
                         .IsUnique();
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.HasIndex("SchoolId");
 
                     b.ToTable("Department");
@@ -258,6 +252,9 @@ namespace AppMVC.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("Name")
                         .IsUnique();
 
                     b.ToTable("School");

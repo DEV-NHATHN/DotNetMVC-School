@@ -1,13 +1,18 @@
-﻿using AppMVC.Models;
+﻿using AppMVC.Data;
+using AppMVC.Models;
 using AppMVC.Models.SchoolManagement;
+using AppMVC.Services;
 using AppMVC.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace AppMVC.Areas.SchoolManagement.Controllers
 {
+    [Authorize(Roles = RoleName.Administrator)]
     [Area("SchoolManagement")]
     [Route("admin/school-management/department/[action]/{id?}")]
     public class DepartmentController : Controller
@@ -16,10 +21,13 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
 
         private readonly UserManager<AppUser> _userManager;
 
-        public DepartmentController(AppDbContext context, UserManager<AppUser> userManager)
+        private readonly IValidationService _validationService;
+
+        public DepartmentController(AppDbContext context, UserManager<AppUser> userManager, IValidationService validationService )
         {
             _context = context;
             _userManager = userManager;
+            _validationService = validationService;
         }
 
         // GET: SchoolManagement/Department
@@ -64,6 +72,23 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         {
             ErrorLogger.LogModelStateErrors(ModelState);
 
+            var validate = _validationService.ValidateCreateDepartment(department);
+
+            if (validate != 0)
+            {
+                switch (validate)
+                {
+                    case 1:
+                        ViewBag.Error = "School Capacity Over";
+                        break;
+                    case 2:
+                        ViewBag.Error = "Department exist";
+                        break;
+                }
+                ViewData["Id"] = new SelectList(_context.Schools, "Id", "Name");
+                return View(department);
+            }
+
             if (ModelState.IsValid)
             {
                 department.CreatedBy = _userManager.GetUserId(User);
@@ -99,9 +124,11 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Capacity,CreatedDate,CreatedBy,SchoolId")] Department department)
         {
-            if (id != department.Id)
+            if (!_validationService.ValidateUpdateDepartment(id, department))
             {
-                return NotFound();
+                ViewBag.Error = "Department already exist";
+                ViewData["Id"] = new SelectList(_context.Schools, "Id", "Name");
+                return View();
             }
 
             if (ModelState.IsValid)
@@ -110,6 +137,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 {
                     _context.Update(department);
                     await _context.SaveChangesAsync();
+                    ViewBag.Success = "Update Department";
                 }
                 catch (DbUpdateConcurrencyException)
                 {

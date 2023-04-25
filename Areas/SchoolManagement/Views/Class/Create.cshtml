@@ -11,6 +11,22 @@
 
 <h4>ClassModel</h4>
 <hr />
+    @{
+        if (@ViewBag.success != null)
+        {
+            <div id="AlertBox" class="alert alert-success" role="alert">
+                @ViewBag.success
+            </div>
+        }
+    }
+    @{
+        if (@ViewBag.error != null)
+        {
+            <div id="AlertBox" class="alert alert-danger" role="alert">
+                @ViewBag.error
+            </div>
+        }
+    }
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">

@@ -10,6 +10,16 @@
 <body>
 
     <h4>ClassModel</h4>
+
+    @{
+        if (@ViewBag.error != null)
+        {
+            <div id="AlertBox" class="alert alert-danger" role="alert">
+                @ViewBag.error
+            </div>
+        }
+    }
+
     <hr />
     <div class="row">
         <div class="col-md-4">

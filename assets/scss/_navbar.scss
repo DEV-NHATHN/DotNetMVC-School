@@ -1,0 +1,33 @@
+.page-header.navbar {
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  min-height: 50px;
+  filter: none;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.page-header-inner {
+  float: left;
+  width: 100%;
+  height: 60px;
+}
+
+.page-header.navbar .page-logo {
+  float: left;
+  display: block;
+  width: 235px;
+  height: 60px;
+  padding: 10px 20px 0px 30px;
+}
+
+.page-logo {
+  background-color: #6673fc;
+}
+
+.page-header.navbar .page-logo {
+  line-height: 1.7 !important;
+}
