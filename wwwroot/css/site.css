@@ -133,6 +133,16 @@ a {
 .page-logo {
   background-color: #6673fc;
 }
+.page-logo__text {
+  color: #fff;
+  font-size: 25px;
+}
+.page-logo__icon {
+  width: 35px;
+  height: 35px;
+  padding-right: 10px;
+  float: left;
+}
 
 .page-header.navbar .page-logo {
   line-height: 1.7 !important;

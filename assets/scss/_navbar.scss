@@ -26,6 +26,16 @@
 
 .page-logo {
   background-color: #6673fc;
+  &__text {
+    color: #fff;
+    font-size: 25px;
+  }
+  &__icon {
+    width: 35px;
+    height: 35px;
+    padding-right: 10px;
+    float: left;
+  }
 }
 
 .page-header.navbar .page-logo {

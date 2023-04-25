@@ -16,14 +16,19 @@
         <nav class="page-header navbar navbar-fixed-top">
             <div class="page-header-inner">
                 <div class="page-logo">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">School</a>
+                    <a class="page-logo__text" asp-area="" asp-controller="Home" asp-action="Index">
+                        <span class="page-logo__icon">
+                            <i class="fas fa-graduation-cap fa-sm" style="color: #ffffff;"></i>
+                        </span>
+                        <span>School</span>
+                    </a>
                 </div>
                 <div class="">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    @* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <partial name="_LoginPartial" />
+                    </button> *@
+                    @* <partial name="_LoginPartial" /> *@
                 </div>
             </div>
         </nav>
