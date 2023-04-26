@@ -56,12 +56,12 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Department</label>
-                    <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
+                    <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId" id="khoaFilter" onchange="reloadLopFilter()"></select>
                     <span asp-validation-for="DepartmentId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Class</label>
-                    <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId"></select>
+                    <label asp-for="Class" class="control-label"></label>
+                    <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId"  id="lopFilter"></select>
                 </div> 
                 <div class="form-group">
                     <label asp-for="CreatedDate" class="control-label"></label>
@@ -85,6 +85,27 @@
     <div>
         <a asp-action="Index">Back to List</a>
     </div>
+
+    <script>
+        function reloadLopFilter() {
+            var khoaId = $("#khoaFilter").val();
+            $.ajax({
+                type: "GET",
+                url: "/admin/school-management/class/GetLopByKhoaId?departmentId=" + khoaId,
+                // data: { khoaId: khoaId },
+                success: function (data) {
+                    console.log(data);
+                    $("#lopFilter").empty();
+                    $.each(data, function (i, item) {
+                        $("#lopFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
+                    });
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>

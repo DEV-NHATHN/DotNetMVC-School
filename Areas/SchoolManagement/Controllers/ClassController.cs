@@ -134,7 +134,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         {
             var departmentCapacity = _context.Departments.FirstOrDefault(m => m.Id == classModel.DepartmentId).Capacity;
             var classCapacity = _context.Classes.Where(m => m.DepartmentId == classModel.DepartmentId).Sum(m => m.Capacity);
-            var availability = departmentCapacity - classCapacity + _context.Classes.Find(id).Capacity ;
+            var availability = departmentCapacity - classCapacity + _context.Classes.Find(id).Capacity;
             var editClass = _context.Classes.FirstOrDefault(m => m.Id == id);
             var validate = _validationService.ValidateUpdateClass(id, classModel);
 
@@ -227,6 +227,14 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         private bool ClassModelExists(int id)
         {
             return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public IActionResult GetLopByKhoaId([FromQuery]int? departmentId)
+        {
+            // string khoaId = HttpContext.Request.RouteValues["khoaId"].ToString();
+
+            var filteredClasses = _context.Classes.Where(c => c.DepartmentId == departmentId).ToList();
+            return Json(filteredClasses);
         }
     }
 }

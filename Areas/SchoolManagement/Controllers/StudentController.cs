@@ -101,8 +101,14 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 return NotFound();
             }
             ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
-            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
+            // ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
             ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
+            ViewData["ClassId"] = _context.Classes.Where(c => c.DepartmentId == student.DepartmentId).Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            }).ToList();
+
             return View(student);
         }
 
