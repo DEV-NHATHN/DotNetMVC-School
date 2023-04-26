@@ -1,6 +1,7 @@
 ﻿using AppMVC.Data;
 using AppMVC.Models;
 using AppMVC.Models.SchoolManagement;
+using AppMVC.Services;
 using AppMVC.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,10 +20,12 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
 
         private readonly UserManager<AppUser> _userManager;
 
-        public StudentController(AppDbContext context, UserManager<AppUser> userManager)
+        private readonly IValidationService _validationService;
+        public StudentController(AppDbContext context, UserManager<AppUser> userManager, IValidationService validationService)
         {
             _context = context;
             _userManager = userManager;
+            _validationService = validationService;
         }
 
         [Authorize(Roles = RoleName.Administrator)]
@@ -82,7 +85,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
             return View(student);
         }
-         
+
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
         // GET: SchoolManagement/Student/Edit/5
         public async Task<IActionResult> Edit(string? id)
@@ -109,18 +112,45 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
-        public async Task<IActionResult> Edit(string id, [Bind("HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId")] AppUser student)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId")] AppUser student)
         {
-            if (id != student.Id)
+            ErrorLogger.LogModelStateErrors(ModelState);
+
+            if (!ModelState.IsValid)
             {
-                return NotFound();
+                return View(student);
+            }
+
+            var validate = _validationService?.ValidateUpdateUser(id, student.Email);
+            if (validate != 0)
+            {
+                switch (validate)
+                {
+                    case 1:
+                        ViewBag.error = "UserNameExisted";
+                        break;
+                    case 2:
+                        ViewBag.error = "EmailExisted";
+                        break;
+                }
+                return View(student);
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(student);
+                    // find old student and update it
+                    var oldStudent = await _context.Students.FindAsync(id);
+                    oldStudent.FullName = student.FullName;
+                    oldStudent.HomeAddress = student.HomeAddress;
+                    oldStudent.BirthDate = student.BirthDate;
+                    oldStudent.SchoolId = student.SchoolId;
+                    oldStudent.DepartmentId = student.DepartmentId;
+                    oldStudent.ClassId = student.ClassId;
+                    oldStudent.ModifiedBy = _userManager.GetUserId(User);
+                    oldStudent.ModifiedDate = DateTime.Now;
+                    _context.Update(oldStudent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

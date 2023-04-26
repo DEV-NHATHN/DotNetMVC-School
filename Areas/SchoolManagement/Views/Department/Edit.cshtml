@@ -1,5 +1,12 @@
 ﻿@model AppMVC.Models.SchoolManagement.Department
 
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
+
+@{
+    ViewData["Title"] = "Department";
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -42,7 +49,7 @@
                 <input asp-for="Capacity" class="form-control" />
                 <span asp-validation-for="Capacity" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="CreatedBy" class="control-label"></label>
                 <input asp-for="CreatedBy" class="form-control" />
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
@@ -51,7 +58,7 @@
                 <label asp-for="SchoolId" class="control-label"></label>
                 <input asp-for="SchoolId" class="form-control" />
                 <span asp-validation-for="SchoolId" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -65,3 +72,13 @@
 
 </body>
 </html>
+
+
+@{
+    _AdminSidebarService.SetActive("Department", "Edit", "SchoolManagement");
+}
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+}

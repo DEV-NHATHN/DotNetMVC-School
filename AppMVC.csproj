@@ -30,6 +30,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="popper.js" Version="1.16.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Data\" />
     <Folder Include="mailssave\" />
+    <Folder Include="Menu\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />

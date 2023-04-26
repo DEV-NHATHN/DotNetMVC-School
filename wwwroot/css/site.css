@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
   font-size: 14px;
+  color: #000;
 }
 
 @media (min-width: 768px) {
@@ -11,10 +12,6 @@ html {
 html {
   position: relative;
   min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
 }
 
 .mg-t-20 {
@@ -146,4 +143,10 @@ a {
 
 .page-header.navbar .page-logo {
   line-height: 1.7 !important;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

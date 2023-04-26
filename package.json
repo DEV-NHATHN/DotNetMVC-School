@@ -10,6 +10,7 @@
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.6.4",
     "node-sass": "^8.0.0",
+    "popper.js": "^1.16.1",
     "postcss": "^8.4.23",
     "rimraf": "^5.0.0",
     "sass": "^1.62.0"

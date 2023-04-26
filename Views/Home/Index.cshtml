@@ -1,8 +1,14 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using AppMVC.Menu
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@inject AdminSidebarService _AdminSidebarService
+
+<div>
+    <div class="flex-center">
+        <img src="https://andrewlock.net/content/images/2021/banner_aspnetcore6.png" width="900" height="600" />
+    </div>
 </div>
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+}

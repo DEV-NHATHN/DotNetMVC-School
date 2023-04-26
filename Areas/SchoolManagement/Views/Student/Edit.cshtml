@@ -1,5 +1,12 @@
 ﻿@model AppUser
 
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
+
+@{
+    ViewData["Title"] = "Student";
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -15,16 +22,11 @@
         <div class="col-md-4">
             <form asp-action="Edit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
+                <input  asp-for="Id" type="hidden"/>
                 <div class="form-group">
                     <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" class="form-control" />
+                    <input asp-for="UserName" class="form-control" disabled />
                     <span asp-validation-for="UserName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="FullName" class="control-label"></label>
-                    <input asp-for="FullName" class="form-control" />
-                    <span asp-validation-for="FullName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
@@ -37,22 +39,28 @@
                     <span asp-validation-for="BirthDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="HomeAddress" class="control-label"></label>
                     <input asp-for="HomeAddress" class="form-control" />
                     <span asp-validation-for="HomeAddress" class="text-danger"></span>
                 </div>
+                <hr/>
                 <div class="form-group">
-                    <label asp-for="SchoolId" class="control-label"></label>
+                    <label class="control-label">School</label>
                     <select asp-for="SchoolId" class="form-control" asp-items="ViewBag.SchoolId"></select>
                     <span asp-validation-for="SchoolId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DepartmentId" class="control-label"></label>
+                    <label class="control-label">Department</label>
                     <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId"></select>
                     <span asp-validation-for="DepartmentId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="ClassId" class="control-label"></label>
+                    <label class="control-label">Class</label>
                     <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId"></select>
                 </div> 
                 <div class="form-group">
@@ -80,3 +88,13 @@
 
 </body>
 </html>
+
+
+@{
+    _AdminSidebarService.SetActive("Student", "Edit", "SchoolManagement");
+}
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+}

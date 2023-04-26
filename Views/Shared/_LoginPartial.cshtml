@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using AppMVC.Models
+@using AppMVC.Menu
 
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
@@ -7,9 +8,14 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="Identity" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right flex-center">
             <li class="nav-item">
-                <a class="nav-link" asp-area="Identity" asp-controller="Manage" asp-action="Index" title="Manage">Xin chào @UserManager.GetUserName(User)!</a>
+                <i class="far fa-user"></i>
+            </li>
+            <li class="nav-item">
+                <div class="d-none d-lg-inline text-gray-600 small">
+                    <a class="nav-link" asp-area="Identity" asp-controller="Manage" asp-action="Index" title="Manage">@UserManager.GetUserName(User)!</a>
+                </div>
             </li>
             <li class="nav-item">
                 <button title="Đăng xuất" type="submit" class="btn btn-link navbar-btn navbar-link">
@@ -21,7 +27,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right flex-center">
         <li class="nav-item">
             <a title="Đăng kí" class="nav-link text-black" asp-area="Identity" asp-controller="Account" asp-action="Register">
                 <i class="fas fa-user-plus"></i>

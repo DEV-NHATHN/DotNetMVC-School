@@ -83,6 +83,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.13, )"
+            },
+            "popper.js": {
+              "target": "Package",
+              "version": "[1.16.1, )"
             }
           },
           "imports": [

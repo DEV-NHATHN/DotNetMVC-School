@@ -1,5 +1,12 @@
 ﻿@model AppMVC.Models.SchoolManagement.School
 
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
+
+@{
+    ViewData["Title"] = "School";
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -48,3 +55,12 @@
 </div>
 </body>
 </html>
+
+@{
+    _AdminSidebarService.SetActive("School", "Delete", "SchoolManagement");
+}
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+}

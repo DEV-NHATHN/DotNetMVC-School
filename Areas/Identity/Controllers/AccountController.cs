@@ -325,7 +325,8 @@ namespace AppMVC.Areas.Identity.Controllers
                     var newUser = new AppUser()
                     {
                         UserName = externalEmail,
-                        Email = externalEmail
+                        Email = externalEmail,
+                        CreatedBy = "self-created",
                     };
 
                     var resultNewUser = await _userManager.CreateAsync(newUser);

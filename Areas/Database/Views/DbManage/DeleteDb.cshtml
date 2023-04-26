@@ -1,10 +1,10 @@
-﻿@* @using App.Menu
-@inject AdminSidebarService _AdminSidebarService *@
+﻿@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
 @{
-    ViewData["Title"] = "Xóa Db";
+    ViewData["Title"] = "Database Manage";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>Xóa Database</h2>
 <p class="alert alert-danger">
     Có chắc chắn xóa?
 </p>
@@ -15,16 +15,17 @@
     </button>
 
     <hr>
-    <a asp-action="Index">Quản lý Db</a>
-
-
+    <a asp-action="Index">
+        <i class="fas fa-backward"></i>
+        Quản lý Db
+        </a>
 </form>
 
-@* @{
+@{
     _AdminSidebarService.SetActive("DbManage", "Index", "Database");
 }
 
 @section Sidebar
     {
     @Html.Raw(_AdminSidebarService.renderHtml())
-} *@
+} 

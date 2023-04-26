@@ -1,11 +1,12 @@
-@* @using App.Menu
-@inject AdminSidebarService _AdminSidebarService *@
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
 @model CreateRoleModel
 
 @{
-    ViewData["Title"] = "Tạo role mới";
+    ViewData["Title"] = "Role";
 }
 
+<h2>Tạo role mới</h2>
 <partial name="_StatusMessage"></partial>
 
 <hr>
@@ -33,11 +34,11 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-@* @{
+@{
     _AdminSidebarService.SetActive("Role", "Create", "Identity");
 }
 
 @section Sidebar
 {
     @Html.Raw(_AdminSidebarService.renderHtml())
-} *@
+}

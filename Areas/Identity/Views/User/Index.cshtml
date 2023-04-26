@@ -1,10 +1,10 @@
-@* @using App.Menu
-@inject AdminSidebarService _AdminSidebarService *@
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService 
 @model UserListModel
 @{
-    ViewData["Title"] = "Danh sách các thành viên";
+    ViewData["Title"] = "User";
 }
-<h2>@ViewData["Title"]</h2>
+<h2>Danh sách các thành viên</h2>
 <partial name="_StatusMessage"></partial>
 <p>Tổng số thành viên: @Model.totalUsers</p>
 
@@ -45,11 +45,11 @@
 
 <partial name="_PagingXTL" model="@pagingmodel" />
 
-@* @{
+@{
     _AdminSidebarService.SetActive("User", "Index", "Identity");
 }
 
 @section Sidebar
 {
     @Html.Raw(_AdminSidebarService.renderHtml())
-} *@
+} 

@@ -76,5 +76,20 @@ namespace AppMVC.Services.ValidateService
             };
             return true;
         }
+
+        public int ValidateUpdateUser(string id, string email)
+        {
+            var existedName = _context.Users.FirstOrDefault(e => e.Id != id && e.UserName.ToLower() == email);
+            if (existedName != null)
+            {
+                return 1;
+            };
+            if (_context.Users.Any(e => e.Email == email && e.Id != id) == true)
+            {
+                return 2;
+            }
+            return 0;
+        }
+
     }
 }

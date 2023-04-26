@@ -1,3 +1,17 @@
+>>>>
+Set up:
+1. cd into sql-server-docker::: docker-compose up -d
+   127.0.0.1,1433
+   sa
+   Password123
+2. Init db + Seed data ::: https://localhost:3000/database-manage/Index
+<<<<
+
+
+
+
+
+
 dotnet --list-sdks
 dotnet --list-runtimes
 dotnet ef migrations remove
@@ -36,11 +50,6 @@ Remove-Migration
 - Là cấu trúc thư mục chứa M.V.C
 - Thiết lập Area cho controller bằng ```[Area("AreaName")]```
 - Tạo cấu trúc thư mục
-```
-dotnet aspnet-codegenerator area Product
-```  
-
-_ViewStart và _ViewImports
 
 # Url.Action()
 # Url.ActionLink()
@@ -53,11 +62,19 @@ asp-action
 asp-route-[paramName]
 asp-route
 
-"Microsoft.EntityFrameworkCore.Query": "Information",
-"Microsoft.EntityFrameworkCore.Database.Command": "Information"
-
-
 <div class="tooltip">
   Tên sản phẩm quá dài làm mất layout của trang
   <span class="tooltiptext">Tên sản phẩm quá dài làm mất layout của trang</span>
 </div>
+
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
+
+@{
+    _AdminSidebarService.SetActive("Class", "Index", "SchoolManagement");
+}
+
+@section Sidebar
+    {
+    @Html.Raw(_AdminSidebarService.renderHtml())
+}

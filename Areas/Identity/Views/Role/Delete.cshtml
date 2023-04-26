@@ -1,10 +1,10 @@
-@* @using App.Menu
-@inject AdminSidebarService _AdminSidebarService *@
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService
 @model IdentityRole
 @{
-    ViewData["Title"] = "Xóa role";
+    ViewData["Title"] = "Role";
 }
-<h2>@ViewData["Title"]</h2>
+<h2>Xóa role</h2>
 <partial name="_StatusMessage"></partial>
 
 <hr>
@@ -28,11 +28,11 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-@* @{
+@{
     _AdminSidebarService.SetActive("Role", "Delete", "Identity");
 }
 
 @section Sidebar
 {
     @Html.Raw(_AdminSidebarService.renderHtml())
-} *@
+} 

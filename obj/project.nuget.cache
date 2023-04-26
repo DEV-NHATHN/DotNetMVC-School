@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8jKptwWYDP2iMY9ssM1w0ZwG2+SWdjS9MTYLh7Amyys0lCnid7r0DAbOIDUnLA2yp+KLoVaZOV5vcV6OWc3WCA==",
+  "dgSpecHash": "AqmqZpQrFg6UKe6zuV6Bhb5kR4k1EJzDpnW5Azt/6env4pOqQXx5JMUU9g31j/i2n2kENQIQHMA8zd2iwsiIeg==",
   "success": true,
   "projectFilePath": "F:\\DotNetMVC-School\\AppMVC.csproj",
   "expectedPackageFiles": [
@@ -102,6 +102,7 @@
     "C:\\Users\\NhatNH2\\.nuget\\packages\\nuget.projectmodel\\6.3.1\\nuget.projectmodel.6.3.1.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\nuget.protocol\\6.3.1\\nuget.protocol.6.3.1.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\nuget.versioning\\6.3.1\\nuget.versioning.6.3.1.nupkg.sha512",
+    "C:\\Users\\NhatNH2\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\NhatNH2\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

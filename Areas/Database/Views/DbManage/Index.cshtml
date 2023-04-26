@@ -3,8 +3,8 @@
 @using AppMVC.Models
 
 @inject AppDbContext db
-@* @using App.Menu
-@inject AdminSidebarService _AdminSidebarService *@
+@using AppMVC.Menu
+@inject AdminSidebarService _AdminSidebarService 
 
 @{
     ViewData["Title"] = "Database Manage";
@@ -17,7 +17,6 @@
 }
 
 <partial name="_AlertMessage" />
-<h1>Database Manage</h1>
 
 <p>@dbName</p>
 <p>@connect.DataSource</p>
@@ -62,11 +61,11 @@
 <a class="btn btn-danger" asp-action="DeleteDb" >Xóa Db:  @dbName</a>
 <a class="btn btn-danger" asp-action="SeedData">Seed Data</a>
 
-@* @{
+@{
     _AdminSidebarService.SetActive("DbManage", "Index", "Database");
 }
 
 @section Sidebar
     {
     @Html.Raw(_AdminSidebarService.renderHtml())
-} *@
+} 
