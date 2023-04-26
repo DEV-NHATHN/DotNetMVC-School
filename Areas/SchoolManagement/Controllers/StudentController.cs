@@ -112,7 +112,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId")] AppUser student)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId,Email")] AppUser student)
         {
             ErrorLogger.LogModelStateErrors(ModelState);
 
@@ -150,6 +150,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                     oldStudent.ClassId = student.ClassId;
                     oldStudent.ModifiedBy = _userManager.GetUserId(User);
                     oldStudent.ModifiedDate = DateTime.Now;
+                    oldStudent.Email = student.Email;
                     _context.Update(oldStudent);
                     await _context.SaveChangesAsync();
                 }
