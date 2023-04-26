@@ -5,9 +5,10 @@ Set up:
    sa
    Password123
 2. Init db + Seed data ::: https://localhost:3000/database-manage/Index
+3. Login admin:
+   admin
+   admin123
 <<<<
-
-
 
 
 
