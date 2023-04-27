@@ -107,7 +107,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             }
             else
             {
-                ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
+                ViewData["DepartmentId"] = null;
             }
             ViewData["ClassId"] = _context.Classes.Where(c => c.DepartmentId == student.DepartmentId).Select(c => new SelectListItem
             {

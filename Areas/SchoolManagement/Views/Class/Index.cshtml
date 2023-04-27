@@ -24,20 +24,20 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Capacity)
-                </th>
                 @* <th>
-                    @Html.DisplayNameFor(model => model.CreatedDate)
+                @Html.DisplayNameFor(model => model.CreatedDate)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CreatedBy)
+                @Html.DisplayNameFor(model => model.CreatedBy)
                 </th> *@
-                @* <th>
-                @Html.DisplayNameFor(model => model.SchoolId);
-                </th> *@
+                <th>
+                    @Html.DisplayNameFor(model => model.Department.School.Name)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Capacity)
                 </th>
                 <th></th>
             </tr>
@@ -49,20 +49,22 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Capacity)
-                    </td>
+                
                     @* <td>
-                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedBy)
-                    </td> *@
-                    @* <td>
-                @Html.DisplayFor(modelItem => item.SchoolId)
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
                 </td> *@
                     <td>
+                        @* have school id => need school name *@
+                        @Html.DisplayFor(modelItem => item.Department.SchoolId)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Department.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Capacity)
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

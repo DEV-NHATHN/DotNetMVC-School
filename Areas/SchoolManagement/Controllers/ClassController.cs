@@ -33,6 +33,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         // GET: SchoolManagement/Class
         public async Task<IActionResult> Index()
         {
+            ViewData["School"] = new SelectList(_context.Schools, "Id", "Name");
             var appDbContext = _context.Classes.Include(c => c.Department);
             return View(await appDbContext.ToListAsync());
         }
@@ -59,7 +60,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         // GET: SchoolManagement/Class/Create
         public IActionResult Create()
         {
-            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
+            ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
             return View();
         }
 

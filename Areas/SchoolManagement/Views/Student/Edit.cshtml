@@ -55,7 +55,9 @@
                 <hr />
                 <div class="form-group">
                     <label class="control-label">School</label>
-                    <select asp-for="SchoolId" class="form-control" asp-items="ViewBag.SchoolId"></select>
+                    <select asp-for="SchoolId" class="form-control" asp-items="ViewBag.SchoolId" id="schoolFilter" onchange="reloadSchoolFilter()">
+                        <option value="" id="default-school" hidden="true">-- Select School --</option>
+                    </select>
                     <span asp-validation-for="SchoolId" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -67,7 +69,9 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Class" class="control-label"></label>
-                    <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId" id="lopFilter"></select>
+                    <select asp-for="ClassId" class="form-control" asp-items="ViewBag.ClassId" id="lopFilter">
+                        <option value="" id="default-class" hidden="true">-- Select Class --</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label asp-for="CreatedDate" class="control-label"></label>
@@ -109,6 +113,26 @@
                     $.each(data, function (i, item) {
                         $("#lopFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
                     });
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+
+        function reloadSchoolFilter() {
+            var schoolId = $("#schoolFilter").val();
+            $.ajax({
+                type: "GET",
+                url: "/admin/school-management/department/GetDepartmentBySchoolId?schoolId=" + schoolId,
+                // data: { schoolId: schoolId },
+                success: function (data) {
+                    console.log(data);
+                    $("#khoaFileter").append('<option value="" id="default-department" hidden="true">-- Select Department --</option>');
+                    $.each(data, function (i, item) {
+                        $("#khoaFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
+                    });
+
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);

@@ -53,13 +53,15 @@
                 <input asp-for="CreatedBy" class="form-control" />
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
             </div> *@
-            @* <div class="form-group">
-                <label asp-for="SchoolId" class="control-label"></label>
-                <select asp-for="SchoolId" class="form-control" asp-items="ViewBag.SchoolId"></select>
-            </div> *@
             <div class="form-group">
-                <label asp-for="Department" class="control-label"></label>
-                <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentId"></select>
+                <label class="control-label">School</label>
+                    <select asp-for="SchoolId" class="form-control" asp-items="ViewBag.SchoolId" id="schoolFilter" onchange="reloadSchoolFilter()">
+                        <option value="" id="default-school" hidden="true">-- Select School --</option>
+                </select>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Department" class="control-label" ></label>
+                    <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentId" id="khoaFilter"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -72,6 +74,27 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<script>
+        function reloadSchoolFilter() {
+            var schoolId = $("#schoolFilter").val();
+            $.ajax({
+                type: "GET",
+                url: "/admin/school-management/department/GetDepartmentBySchoolId?schoolId=" + schoolId,
+                // data: { schoolId: schoolId },
+                success: function (data) {
+                    console.log(data);
+                    $("#khoaFileter").append('<option value="" id="default-department" hidden="true">-- Select Department --</option>');
+                    $.each(data, function (i, item) {
+                        $("#khoaFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
+                    });
+
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
+</script>
 </body>
 </html>
 
