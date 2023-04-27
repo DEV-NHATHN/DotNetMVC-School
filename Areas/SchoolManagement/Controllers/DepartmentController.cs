@@ -135,7 +135,10 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             {
                 try
                 {
-                    _context.Update(department);
+                    var oldDepartment = await _context.Departments.FindAsync(id);
+                    oldDepartment.Name = department.Name;
+                    oldDepartment.Capacity = department.Capacity;
+                    _context.Update(oldDepartment);
                     await _context.SaveChangesAsync();
                     ViewBag.Success = "Update Department";
                 }

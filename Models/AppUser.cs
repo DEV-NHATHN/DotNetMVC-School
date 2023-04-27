@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using AppMVC.Models.SchoolManagement;
+using AppMVC.Services.ValidateService;
 
 namespace AppMVC.Models
 {
@@ -18,6 +19,7 @@ namespace AppMVC.Models
 
         // [Required]       
         [DataType(DataType.Date)]
+        [CustomValidation(typeof(CustomValidators), nameof(CustomValidators.ValidateAge))]
         public DateTime? BirthDate { get; set; }
 
         public bool? IsDeleted { get; set; }

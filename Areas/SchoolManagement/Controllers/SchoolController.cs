@@ -1,9 +1,12 @@
 ﻿using AppMVC.Data;
 using AppMVC.Models;
 using AppMVC.Models.SchoolManagement;
+using AppMVC.Services;
 using AppMVC.Utilities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -16,9 +19,15 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
     {
         private readonly AppDbContext _context;
 
-        public SchoolController(AppDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+
+        private readonly IValidationService _validationService;
+
+        public SchoolController(AppDbContext context, UserManager<AppUser> userManager, IValidationService validationService)
         {
             _context = context;
+            _userManager = userManager;
+            _validationService = validationService;
         }
 
         // GET: SchoolManagement/School
@@ -62,6 +71,20 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         public async Task<IActionResult> Create([Bind("Name,FoundedTime,Capacity,Address")] School school)
         {
             ErrorLogger.LogModelStateErrors(ModelState);
+
+            var validate = _validationService.ValidateCreateSchool(school);
+
+            if (validate != 0)
+            {
+                switch (validate)
+                {
+                    case 1:
+                        ViewBag.error = "School Existed";
+                        break;
+                }
+                ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
+                return View(school);
+            }
 
             if (ModelState.IsValid)
             {

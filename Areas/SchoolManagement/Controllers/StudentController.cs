@@ -74,6 +74,36 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         {
             ErrorLogger.LogModelStateErrors(ModelState);
 
+            var validate = _validationService?.ValidateCreateStudent(student.ClassId, student);
+            if (validate != 0)
+            {
+                switch (validate)
+                {
+                    case 1:
+                        ViewBag.error = "UserNameExisted";
+                        break;
+                    case 2:
+                        ViewBag.error = "Class Over Capacity";
+                        break;
+                }
+                ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
+                if (student.SchoolId != null) {
+                    ViewData["DepartmentId"] = new SelectList(_context.Departments.Where(d => d.SchoolId == student.SchoolId), "Id", "Name");
+                } else
+                {
+                    ViewData["DepartmentId"] = null;
+                }
+                if (student.DepartmentId != null)
+                {
+                    ViewData["ClassId"] = new SelectList(_context.Classes.Where(c => c.DepartmentId == student.DepartmentId), "Id", "Name");
+                }
+                else
+                {
+                    ViewData["ClassId"] = null;
+                }
+                return View(student);
+            }
+
             if (ModelState.IsValid)
             {
                 student.CreatedBy = _userManager.GetUserId(User);
@@ -81,9 +111,11 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
-            ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
-            return View(student);
+            else {
+                ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
+                ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
+                return View(student);
+            }
         }
 
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
@@ -124,7 +156,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId,Email")] AppUser student)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,HomeAddress,FullName,BirthDate,SchoolId,DepartmentId,ClassId,Email,UserName")] AppUser student)
         {
             ErrorLogger.LogModelStateErrors(ModelState);
 
@@ -133,7 +165,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 return View(student);
             }
 
-            var validate = _validationService?.ValidateUpdateUser(id, student.Email);
+            var validate = _validationService?.ValidateUpdateUser(id, student);
             if (validate != 0)
             {
                 switch (validate)
@@ -145,6 +177,20 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                         ViewBag.error = "EmailExisted";
                         break;
                 }
+                ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
+                if (student.SchoolId != null)
+                {
+                    ViewData["DepartmentId"] = new SelectList(_context.Departments.Where(d => d.SchoolId == student.SchoolId), "Id", "Name");
+                }
+                else
+                {
+                    ViewData["DepartmentId"] = null;
+                }
+                ViewData["ClassId"] = _context.Classes.Where(c => c.DepartmentId == student.DepartmentId).Select(c => new SelectListItem
+                {
+                    Text = c.Name,
+                    Value = c.Id.ToString()
+                }).ToList();
                 return View(student);
             }
 
@@ -163,6 +209,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                     oldStudent.ModifiedBy = _userManager.GetUserId(User);
                     oldStudent.ModifiedDate = DateTime.Now;
                     oldStudent.Email = student.Email;
+                    oldStudent.UserName = student.UserName;
                     _context.Update(oldStudent);
                     await _context.SaveChangesAsync();
                 }

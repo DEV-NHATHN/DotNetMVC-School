@@ -77,19 +77,38 @@ namespace AppMVC.Services.ValidateService
             return true;
         }
 
-        public int ValidateUpdateUser(string id, string email)
+        public int ValidateCreateStudent(int? classId, AppUser student)
         {
-            var existedName = _context.Users.FirstOrDefault(e => e.Id != id && e.UserName.ToLower() == email);
-            if (existedName != null)
-            {
-                return 1;
-            };
-            if (_context.Users.Any(e => e.Email == email && e.Id != id) == true)
+            var currentClassCapacity = _context.Classes.FirstOrDefault(e => e.Id == classId).Capacity;
+            var currentStudentInClass = _context.Users.Where(e => e.ClassId == classId).Count();
+            if (currentStudentInClass >= currentClassCapacity)
             {
                 return 2;
             }
             return 0;
         }
 
+        public int ValidateUpdateUser(string id, AppUser student)
+        {
+            if (_context.Users.Any(e => e.UserName.Trim() == student.UserName.Trim() && e.Id != id) == true)
+            {
+                return 1;
+            };
+            if (_context.Users.Any(e => e.Email.Trim() == student.Email.Trim() && e.Id != id) == true)
+            {
+                return 2;
+            }
+            return 0;
+        }
+
+        public int ValidateCreateSchool(School school)
+        {
+            var existed = _context.Schools.FirstOrDefault(e => e.Name.ToLower().Trim() == school.Name.ToLower().Trim());
+            if (existed != null)
+            {
+                return 1;
+            };
+            return 0;
+        }
     }
 }

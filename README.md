@@ -1,4 +1,3 @@
->>>>
 Set up:
 1. cd into sql-server-docker::: docker-compose up -d
    127.0.0.1,1433
@@ -8,9 +7,6 @@ Set up:
 3. Login admin:
    admin
    admin123
-<<<<
-
-
 
 
 dotnet --list-sdks
@@ -79,3 +75,19 @@ asp-route
     {
     @Html.Raw(_AdminSidebarService.renderHtml())
 }
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapAreaControllerRoute(
+                 name: "product",
+                 areaName: "ProductManage",
+                 pattern: "/{controller}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                 name: "first",
+                        pattern: "{url:regex(^view.*product$)}/{id:range(1,5)}",
+                        defaults: new { controller = "First", action = "ViewProduct" });
+                endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });

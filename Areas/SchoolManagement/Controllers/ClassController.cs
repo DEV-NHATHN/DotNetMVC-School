@@ -34,7 +34,8 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         public async Task<IActionResult> Index()
         {
             ViewData["School"] = new SelectList(_context.Schools, "Id", "Name");
-            var appDbContext = _context.Classes.Include(c => c.Department);
+            // ViewBag.SchoolName = _context.Schools.FirstOrDefault(m => m.Id == 1).Name;
+            var appDbContext = _context.Classes.Include(c => c.Department);     
             return View(await appDbContext.ToListAsync());
         }
 
@@ -122,7 +123,8 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name", classModel.DepartmentId);
+            // get department base on school id
+            ViewData["DepartmentId"] = new SelectList(_context.Departments.Where(m => m.SchoolId == classModel.SchoolId), "Id", "Name", classModel.DepartmentId);
             return View(classModel);
         }
 

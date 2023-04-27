@@ -22,6 +22,14 @@
 <body>
     <h4>ClassModel</h4>
     <hr />
+    @{
+        if (@ViewBag.error != null)
+        {
+            <div id="AlertBox" class="alert alert-danger" role="alert">
+                @ViewBag.error
+            </div>
+        }
+    }
     <div class="row">
         <div class="col-md-4">
             <form asp-action="Edit">
@@ -29,7 +37,7 @@
                 <input asp-for="Id" type="hidden" />
                 <div class="form-group">
                     <label asp-for="UserName" class="control-label"></label>
-                    <input asp-for="UserName" class="form-control" disabled />
+                    <input asp-for="UserName" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -73,13 +81,13 @@
                         <option value="" id="default-class" hidden="true">-- Select Class --</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group" hidden>
                     <label asp-for="CreatedDate" class="control-label"></label>
                     <input asp-for="CreatedDate" class="form-control" />
                     <span asp-validation-for="CreatedDate" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" hidden>
                     <label asp-for="CreatedBy" class="control-label"></label>
                     <input asp-for="CreatedBy" class="form-control" />
                     <span asp-validation-for="CreatedBy" class="text-danger"></span>
@@ -110,6 +118,7 @@
                 success: function (data) {
                     console.log(data);
                     $("#lopFilter").empty();
+                    $("#lopFilter").append('<option value="" id="default-class" hidden="false">-- Select Class --</option>');
                     $.each(data, function (i, item) {
                         $("#lopFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
                     });
@@ -128,7 +137,9 @@
                 // data: { schoolId: schoolId },
                 success: function (data) {
                     console.log(data);
-                    $("#khoaFileter").append('<option value="" id="default-department" hidden="true">-- Select Department --</option>');
+                    $("#khoaFilter").empty();
+                    $("#lopFilter").empty();
+                    $("#khoaFilter").append('<option value="" id="default-department" hidden="false">-- Select Department --</option>');
                     $.each(data, function (i, item) {
                         $("#khoaFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
                     });

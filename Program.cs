@@ -129,22 +129,6 @@ namespace AppMVC
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapAreaControllerRoute(
-                 name: "product",
-                 areaName: "ProductManage",
-                 pattern: "/{controller}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute(
-                 name: "first",
-                        pattern: "{url:regex(^view.*product$)}/{id:range(1,5)}",
-                        defaults: new { controller = "First", action = "ViewProduct" });
-                endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });
-
             app.Run();
         }
     }
