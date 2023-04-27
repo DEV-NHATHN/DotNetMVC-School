@@ -198,5 +198,12 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         {
           return (_context.Departments?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDepartmentBySchoolId([FromQuery]int? schoolId)
+        {
+            var departments = await _context.Departments.Where(d => d.SchoolId == schoolId).ToListAsync();
+            return Json(departments);
+        }
     }
 }
