@@ -78,10 +78,10 @@ namespace AppMVC.Models
 
         public DbSet<School> Schools { get; set; }
 
-        public DbSet<Department>? Departments { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
-        public DbSet<ClassModel>? Classes { get; set; }
+        public DbSet<ClassModel> Classes { get; set; }
 
-        public DbSet<AppUser>? Students { get; set; }
+        public DbSet<AppUser> Students { get; set; }
     }
 }

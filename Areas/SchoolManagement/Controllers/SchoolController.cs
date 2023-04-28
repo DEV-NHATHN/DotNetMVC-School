@@ -187,5 +187,21 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         {
             return (_context.Schools?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNameBySchoolId([FromQuery] int? schoolId)
+        {
+            if (schoolId == null || _context.Schools == null)
+            {
+                return NotFound();
+            }
+            var school = await _context.Schools
+                .FirstOrDefaultAsync(m => m.Id == schoolId);
+            if (school == null)
+            {
+                return NotFound();
+            }
+            return Json(school.Name);   
+        }
     }
 }

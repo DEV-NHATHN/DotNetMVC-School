@@ -30,10 +30,41 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
 
         [Authorize(Roles = RoleName.Administrator)]
         // GET: SchoolManagement/Student
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index([FromQuery(Name = "p")] int currentPage, int pagesize)
         {
-            var appDbContext = _context.Students;
-            return View(await appDbContext.ToListAsync());
+            var students = _context.Students;
+
+            int totalStudents = await students.CountAsync();
+            if (pagesize <= 0) pagesize = 10;
+            int countPages = (int)Math.Ceiling((double)totalStudents / pagesize);
+
+            if (currentPage > countPages) currentPage = countPages;
+            if (currentPage < 1) currentPage = 1;
+
+            var pagingModel = new PagingModel()
+            {
+                countpages = countPages,
+                currentpage = currentPage,
+                generateUrl = (pageNumber) => Url.Action("Index", new
+                {
+                    p = pageNumber,
+                    pagesize = pagesize
+                })
+            };
+
+            ViewBag.pagingModel = pagingModel;
+            ViewBag.totalStudents = totalStudents;
+
+            ViewBag.studentIndex = (currentPage - 1) * pagesize;
+
+            var studentInPage = await students
+                .Include(c => c.Class)
+                .OrderByDescending(c => c.CreatedDate)
+                .Skip((currentPage - 1) * pagesize)
+                .Take(pagesize)
+                .ToListAsync();
+
+            return View(studentInPage);
         }
 
         [Authorize(Roles = RoleName.Member + "," + RoleName.Administrator)]
@@ -87,9 +118,11 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                         break;
                 }
                 ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
-                if (student.SchoolId != null) {
+                if (student.SchoolId != null)
+                {
                     ViewData["DepartmentId"] = new SelectList(_context.Departments.Where(d => d.SchoolId == student.SchoolId), "Id", "Name");
-                } else
+                }
+                else
                 {
                     ViewData["DepartmentId"] = null;
                 }
@@ -111,9 +144,35 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            else {
-                ViewData["DepartmentId"] = new SelectList(_context.Departments, "Id", "Name");
-                ViewData["ClassId"] = new SelectList(_context.Classes, "Id", "Name");
+            else
+            {
+                var errors = new List<string>();
+                foreach (var key in ModelState.Keys)
+                {
+                    foreach (var error in ModelState[key].Errors)
+                    {
+                        errors.Add(error.ErrorMessage);
+                    }
+                }
+                ViewBag.error = errors;
+
+                ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
+                if (student.SchoolId != null)
+                {
+                    ViewData["DepartmentId"] = new SelectList(_context.Departments.Where(d => d.SchoolId == student.SchoolId), "Id", "Name");
+                }
+                else
+                {
+                    ViewData["DepartmentId"] = null;
+                }
+                if (student.DepartmentId != null)
+                {
+                    ViewData["ClassId"] = new SelectList(_context.Classes.Where(c => c.DepartmentId == student.DepartmentId), "Id", "Name");
+                }
+                else
+                {
+                    ViewData["ClassId"] = null;
+                }
                 return View(student);
             }
         }
@@ -162,6 +221,7 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
 
             if (!ModelState.IsValid)
             {
+                ViewData["id"] = student.Id;
                 return View(student);
             }
 
@@ -175,6 +235,9 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                         break;
                     case 2:
                         ViewBag.error = "EmailExisted";
+                        break;
+                    case 3:
+                        ViewBag.error = "Class Over Capacity";
                         break;
                 }
                 ViewData["SchoolId"] = new SelectList(_context.Schools, "Id", "Name");
@@ -200,18 +263,25 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
                 {
                     // find old student and update it
                     var oldStudent = await _context.Students.FindAsync(id);
-                    oldStudent.FullName = student.FullName;
-                    oldStudent.HomeAddress = student.HomeAddress;
-                    oldStudent.BirthDate = student.BirthDate;
-                    oldStudent.SchoolId = student.SchoolId;
-                    oldStudent.DepartmentId = student.DepartmentId;
-                    oldStudent.ClassId = student.ClassId;
-                    oldStudent.ModifiedBy = _userManager.GetUserId(User);
-                    oldStudent.ModifiedDate = DateTime.Now;
-                    oldStudent.Email = student.Email;
-                    oldStudent.UserName = student.UserName;
-                    _context.Update(oldStudent);
-                    await _context.SaveChangesAsync();
+                    if (oldStudent == null)
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        oldStudent.FullName = student.FullName;
+                        oldStudent.HomeAddress = student.HomeAddress;
+                        oldStudent.BirthDate = student.BirthDate;
+                        oldStudent.SchoolId = student.SchoolId;
+                        oldStudent.DepartmentId = student.DepartmentId;
+                        oldStudent.ClassId = student.ClassId;
+                        oldStudent.ModifiedBy = _userManager.GetUserId(User);
+                        oldStudent.ModifiedDate = DateTime.Now;
+                        oldStudent.Email = student.Email;
+                        oldStudent.UserName = student.UserName;
+                        _context.Update(oldStudent);
+                        await _context.SaveChangesAsync();
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -273,6 +343,22 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
         private bool StudentModelExists(string id)
         {
             return (_context.Students?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNameByUserId([FromQuery] string? userId)
+        {
+            if (userId == null || _context.Students == null)
+            {
+                return NotFound();
+            }
+            var user = await _context.Students
+                .FirstOrDefaultAsync(m => m.Id == userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Json(user.UserName);
         }
     }
 }

@@ -208,5 +208,21 @@ namespace AppMVC.Areas.SchoolManagement.Controllers
             var departments = await _context.Departments.Where(d => d.SchoolId == schoolId).ToListAsync();
             return Json(departments);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNameByDepartmentId([FromQuery] int? departmentId)
+        {
+            if (departmentId == null || _context.Departments == null)
+            {
+                return NotFound();
+            }
+            var department = await _context.Departments
+                .FirstOrDefaultAsync(m => m.Id == departmentId);
+            if (department == null)
+            {
+                return NotFound();
+            }
+            return Json(department.Name);
+        }
     }
 }

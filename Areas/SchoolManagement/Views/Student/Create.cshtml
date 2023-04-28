@@ -77,25 +77,6 @@
     </div>
 
     <script>
-        function reloadDepartmentFilter() {
-            var khoaId = $("#khoaFilter").val();
-            $.ajax({
-                type: "GET",
-                url: "/admin/school-management/class/GetLopByKhoaId?departmentId=" + khoaId,
-                // data: { khoaId: khoaId },
-                success: function (data) {
-                    console.log(data);
-                    $("#lopFilter").empty();
-                    $.each(data, function (i, item) {
-                        $("#lopFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
-                    });
-                },
-                error: function (xhr) {
-                    console.log(xhr.responseText);
-                }
-            });
-        }
-
         function reloadSchoolFilter() {
             var schoolId = $("#schoolFilter").val();
             $.ajax({
@@ -104,13 +85,45 @@
                 // data: { schoolId: schoolId },
                 success: function (data) {
                     console.log(data);
-                    $("#khoaFilter").empty();
                     $("#lopFilter").empty();
-                    $("#khoaFileter").append('<option value="" id="default-department" hidden="true">-- Select Department --</option>');
+                    $("#khoaFilter").empty();
+                    $("#khoaFilter").append('<option value="" id="default-department" hidden >-- Select Department --</option>');
                     $.each(data, function (i, item) {
                         $("#khoaFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
                     });
+                    if (data.length == 0) {
+                        $("#khoaFilter").empty();
+                        $("#khoaFilter").append('<option value="" id="default-department" >-- No Department --</option>');
+                        // disabled select
+                        $("#khoaFilter").prop("disabled", true);
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        }
 
+        function reloadDepartmentFilter() {
+            var khoaId = $("#khoaFilter").val();
+            $.ajax({
+                type: "GET",
+                url: "/admin/school-management/class/GetLopByKhoaId?departmentId=" + khoaId,
+                // data: { khoaId: khoaId },
+                success: function (data) {
+                    if (data.length == 0) {
+                        $("#lopFilter").empty();
+                        $("#lopFilter").append('<option value="" id="default-class" >-- No Class --</option>');
+                        // disabled select
+                        $("#lopFilter").prop("disabled", true);
+                    } else {
+                        $("#lopFilter").prop("disabled", false);
+                        console.log(data);
+                        $("#lopFilter").empty();
+                        $.each(data, function (i, item) {
+                            $("#lopFilter").append('<option value="' + item.id + '">' + item.name + '</option>');
+                        });
+                    }
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);

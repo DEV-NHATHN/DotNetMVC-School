@@ -53,6 +53,15 @@ a {
   visibility: visible;
 }
 
+.w-300 {
+  max-width: 300px;
+  overflow: clip;
+}
+
+.table td, .table th {
+  max-width: 200px;
+}
+
 .main {
   background: #f8f8f8;
   height: 100vh;

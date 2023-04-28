@@ -1,56 +1,65 @@
 ﻿html {
-  font-size: 14px;
-  color: #000;
+    font-size: 14px;
+    color: #000;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 .mg-t-20 {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .mg-b-20 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 a {
-  color: #000;
-  text-decoration: none !important;
+    color: #000;
+    text-decoration: none !important;
 }
 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  /* Vị trí tooltip */
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Vị trí tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
+}
+
+.w-300 {
+    max-width: 300px;
+    overflow: clip;
+}
+
+.table td, .table th {
+    max-width: 200px;
 }
 
 @import "menu";

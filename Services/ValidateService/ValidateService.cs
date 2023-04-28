@@ -79,7 +79,7 @@ namespace AppMVC.Services.ValidateService
 
         public int ValidateCreateStudent(int? classId, AppUser student)
         {
-            var currentClassCapacity = _context.Classes.FirstOrDefault(e => e.Id == classId).Capacity;
+            var currentClassCapacity = _context.Classes.FirstOrDefault(e => e.Id == classId)?.Capacity;
             var currentStudentInClass = _context.Users.Where(e => e.ClassId == classId).Count();
             if (currentStudentInClass >= currentClassCapacity)
             {
@@ -90,14 +90,24 @@ namespace AppMVC.Services.ValidateService
 
         public int ValidateUpdateUser(string id, AppUser student)
         {
-            if (_context.Users.Any(e => e.UserName.Trim() == student.UserName.Trim() && e.Id != id) == true)
+            if (student.UserName != null)
             {
-                return 1;
-            };
-            if (_context.Users.Any(e => e.Email.Trim() == student.Email.Trim() && e.Id != id) == true)
-            {
-                return 2;
+                if (_context.Users.Any(e => e.UserName.Trim() == student.UserName.Trim() && e.Id != id) == true)
+                {
+                    return 1;
+                };
             }
+
+            if (student.Email != null)
+            {
+                if (_context.Users.Any(e => e.Email.Trim() == student.Email.Trim() && e.Id != id) == true)
+                {
+                    return 2;
+                }
+            }
+
+            var isClassFull = _context.Classes.FirstOrDefault(e => e.Id == student.ClassId)?.Capacity == _context.Users.Where(e => e.ClassId == student.ClassId).Count();
+            if (isClassFull) return 3;
             return 0;
         }
 
